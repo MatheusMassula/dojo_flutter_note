@@ -14,3 +14,18 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## What to expect
+
+1. The app will allow the user make a CRUD in notes with:
+- title - String (required)
+- body - String (required)
+- tag - String (nullable)
+
+2. The app will allow the user to make a CRUD in tags (basically a strings)
+
+## Screens
+1. Home screen - List the notes saved on the app
+2. Note detail - Display the detail of an exisiting note allowing user to edit a note or allow user insert detail to create a new one
+3. Tags screen - Display tags
+4. Tag details - Display the detail of an exisiting tag allowing user to edit a tag or insert a new one (Let some functions to be done on DOJO)
