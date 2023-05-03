@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 
 1. The app will allow the user make a CRUD in notes with:
 - title - String (required)
-- body - String (required)
+- description - String (required)
 - tag - String (nullable)
 
 2. The app will allow the user to make a CRUD in tags (basically a strings)
@@ -29,3 +29,8 @@ samples, guidance on mobile development, and a full API reference.
 2. Note detail - Display the detail of an exisiting note allowing user to edit a note or allow user insert detail to create a new one
 3. Tags screen - Display tags
 4. Tag details - Display the detail of an exisiting tag allowing user to edit a tag or insert a new one (Let some functions to be done on DOJO)
+
+## Run on your PC
+- open the terminal on project folder
+- run the command `flutter pub run build_runner build --delete-conflicting-outputs` to generate the database
+- 
