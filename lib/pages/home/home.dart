@@ -1,21 +1,24 @@
-import 'package:dojo_flutter_note/data_source/note/note_dao.dart';
 import 'package:dojo_flutter_note/data_source/note/note_local_data_source.dart';
 import 'package:dojo_flutter_note/pages/home/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  final NoteLocalDataSource noteLocalDataSource;
+  final VoidCallback onAddNote;
+  final VoidCallback onTapNote;
+
+  const Home({
+    super.key,
+    required this.noteLocalDataSource,
+    required this.onAddNote,
+    required this.onTapNote,
+  });
 
   @override
-  Widget build(BuildContext context) => RepositoryProvider(
-        create: (context) => NoteLocalDataSource(noteDao: NoteDao()),
-        child: BlocProvider(
-          create: (context) => HomeCubit(
-            RepositoryProvider.of<NoteLocalDataSource>(context),
-          ),
-          child: const _HomeView(),
-        ),
+  Widget build(BuildContext context) => BlocProvider(
+        create: (context) => HomeCubit(noteLocalDataSource),
+        child: const _HomeView(),
       );
 }
 
