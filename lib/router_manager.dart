@@ -1,5 +1,7 @@
 import 'package:dojo_flutter_note/data_source/note/note_local_data_source.dart';
+import 'package:dojo_flutter_note/models/note.dart';
 import 'package:dojo_flutter_note/pages/home/home.dart';
+import 'package:dojo_flutter_note/pages/note_detail/note_detail.dart';
 import 'package:flutter/material.dart';
 
 class RouterManager {
@@ -12,24 +14,22 @@ class RouterManager {
         return MaterialPageRoute(
           builder: (context) => Home(
             noteLocalDataSource: noteLocalDataSource,
-            onAddNote: () {
-              // TODO: Navigate to note detail
-            },
-            onTapNote: () {
-              // TODO: Navigate to note detail
-            },
+            onAddNote: () => Navigator.of(context).pushNamed(
+              PageName.noteDetail,
+            ),
+            onTapNote: (note) => Navigator.of(context).pushNamed(
+              PageName.noteDetail,
+              arguments: note,
+            ),
           ),
         );
 
       case PageName.noteDetail:
+        final note = args as Note?;
         return MaterialPageRoute(
-          builder: (context) => Scaffold(
-            appBar: AppBar(
-              title: const Text('Note detail'),
-            ),
-            body: Center(
-              child: Text(args.toString()),
-            ),
+          builder: (context) => NoteDetail(
+            noteLocalDataSource: noteLocalDataSource,
+            note: note,
           ),
         );
 

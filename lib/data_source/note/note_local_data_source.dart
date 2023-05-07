@@ -8,7 +8,7 @@ class NoteLocalDataSource {
 
   List<Note> get getAll => _noteDao.getAll;
 
-  int addNote(Note note) => _noteDao.addNote(note);
+  int upsertNote(Note note) => _noteDao.upsertNote(note);
 
   bool deleteById(int id) => _noteDao.deleteById(id);
 

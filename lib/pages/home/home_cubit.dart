@@ -11,28 +11,16 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(NoteLocalDataSource noteLocalDataSource)
       : _noteLocalDataSource = noteLocalDataSource,
         super(const HomeState()) {
-    _getAllNotes();
+    getAllNotes();
   }
 
-  void _getAllNotes() {
+  void getAllNotes() {
     final notes = _noteLocalDataSource.getAll;
     emit(state.copyWith(notes: notes));
   }
 
   void deleteById(int id) {
     _noteLocalDataSource.deleteById(id);
-    _getAllNotes();
-  }
-
-  // TODO: addNote should redirect to a new page
-  void addNote() {
-    final note = Note(
-      title: 'Title ${state.notes.length + 1}',
-      description: 'Description ${state.notes.length + 1}',
-    );
-    _noteLocalDataSource.addNote(
-      note,
-    );
-    _getAllNotes();
+    getAllNotes();
   }
 }
