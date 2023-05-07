@@ -56,8 +56,11 @@ class _HomeView extends StatelessWidget {
           }
 
           return ListView.builder(
-            itemCount: state.notes.length,
+            itemCount: state.notes.length + 1,
             itemBuilder: (context, index) {
+              if (index == state.notes.length) {
+                return const SizedBox(height: 72);
+              }
               final note = state.notes[index];
               return ListTile(
                 title: Text(note.title),
