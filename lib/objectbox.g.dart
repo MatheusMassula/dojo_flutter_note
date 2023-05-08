@@ -131,7 +131,8 @@ ModelDefinition getObjectBoxModel() {
               title: const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 6, ''),
               description: const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 8, ''));
+                  .vTableGet(buffer, rootOffset, 8, ''),
+              tags: ToMany());
           InternalToManyAccess.setRelInfo<Note>(
               object.tags, store, RelInfo<Note>.toMany(1, object.id));
           return object;
