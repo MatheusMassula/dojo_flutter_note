@@ -64,7 +64,19 @@ class _HomeView extends StatelessWidget {
               final note = state.notes[index];
               return ListTile(
                 title: Text(note.title),
-                subtitle: Text(note.description),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(note.description),
+                    if (note.tags.isNotEmpty)
+                      Wrap(
+                        spacing: 8,
+                        children: note.tags
+                            .map((tag) => Chip(label: Text(tag.name)))
+                            .toList(),
+                      ),
+                  ],
+                ),
                 onTap: () => _onTapNote(context: context, note: note),
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
@@ -92,5 +104,4 @@ class _HomeView extends StatelessWidget {
       context.read<HomeCubit>().getAllNotes();
     }
   }
-
 }
