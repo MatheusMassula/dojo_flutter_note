@@ -1,28 +1,24 @@
 # dojo_flutter_note
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
 ## What to expect
 
 1. The app will allow the user make a CRUD in notes with:
 - title - String (required)
 - description - String (required)
-- tag - String (nullable)
+- tag - List<String> (nullable)
 
-2. The app will allow the user to make a CRUD in tags (basically a strings)
+2. The app will allow the user to make a CRUD in tags
+
+And that's how the app looks like:
+
+![home-screen](documentation/home.png)
+![home-screen](documentation/note_detail.png)
+
+## About the project
+The app was created using:
+- Flutter 3.7.5
+- Dart 2.19.2
+- DevTools 2.20.1
 
 ## Screens
 1. Home screen - List the notes saved on the app
@@ -32,5 +28,25 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Run on your PC
 - open the terminal on project folder
-- run the command `flutter pub run build_runner build --delete-conflicting-outputs` to generate the database
-- 
+- execute the command `flutter pub run build_runner build --delete-conflicting-outputs` to generate the database
+- still in terminal with a connected device execute `flutter run`
+
+---
+# DOJO
+- [Flutter is a framework](#flutter)
+- [Dart is the language used to develop on that framework](#dart)
+- [What are the views in Flutter?](#views-in-flutter)
+- [What is Ephemeral state and App state](#state-management)
+- [How to navigate through the screens?](#navigation)
+
+---
+## [Flutter](https://docs.flutter.dev)
+---
+## [Dart](https://dart.dev/overview)
+---
+## [Views in Flutter](https://docs.flutter.dev/get-started/flutter-for/android-devs#what-is-the-equivalent-of-a-view-in-flutter)
+---
+## [State management](https://docs.flutter.dev/data-and-backend/state-mgmt/ephemeral-vs-app)
+![](documentation/ephemeral-vs-app-state.png)
+---
+## [Navigation](https://docs.flutter.dev/cookbook/navigation)
