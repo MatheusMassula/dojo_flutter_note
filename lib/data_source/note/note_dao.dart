@@ -5,7 +5,7 @@ import 'package:objectbox/objectbox.dart';
 class NoteDao {
   final _noteBox = store.box<Note>();
 
-  List<Note> get getAll => _noteBox.getAll();
+  List<Note> get getAll => []; //TODO 
 
   int upsertNote(Note note) {
     final isNewNote = note.id == 0;

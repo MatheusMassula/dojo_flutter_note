@@ -6,7 +6,7 @@ class NoteLocalDataSource {
 
   NoteLocalDataSource({required NoteDao noteDao}) : _noteDao = noteDao;
 
-  List<Note> get getAll => _noteDao.getAll;
+  List<Note> get getAll => []; // TODO
 
   int upsertNote(Note note) => _noteDao.upsertNote(note);
 
