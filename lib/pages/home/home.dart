@@ -55,7 +55,37 @@ class _HomeView extends StatelessWidget {
             );
           }
 
-          return Text('Use list view');
+          return ListView.builder(
+            itemCount: state.notes.length + 1,
+            itemBuilder: (context, index) {
+              if (index == state.notes.length) {
+                return const SizedBox(height: 72);
+              }
+              final note = state.notes[index];
+              return ListTile(
+                title: Text(note.title),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(note.description),
+                    if (note.tags.isNotEmpty)
+                      Wrap(
+                        spacing: 8,
+                        children: note.tags
+                            .map((tag) => Chip(label: Text(tag.name)))
+                            .toList(),
+                      ),
+                  ],
+                ),
+                onTap: () => _onTapNote(context: context, note: note),
+                trailing: IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () =>
+                      context.read<HomeCubit>().deleteById(note.id),
+                ),
+              );
+            },
+          );
         },
       ),
     );
